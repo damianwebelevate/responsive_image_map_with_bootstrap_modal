@@ -1,0 +1,260 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Responsive Image Map - with bootstrap modal.js</title>
+<meta name="Author" content="Damian O'Rourke">
+<style type="text/css">
+/* General styles */
+html, body {padding:0; margin:0; width:100%; min-height:100%;}
+.wrapper {width:100%; height:100%;}
+.this_page {width:100%; max-width:1290px; margin:0 auto;}
+
+/* Image map styles */
+.imageMap {width:100%; position:relative; margin-bottom:200px;}
+.imageMap img {display:block; width:100%; border-radius:20px;}
+.imageMap .hotspots {width:100%; height:100%; position:absolute; left:0; top:0; /*visibility:hidden*/;}
+.imageMap a {display:block; position:absolute; background:#fff; z-index:100; opacity:0.2; filter: alpha(opacity=20); border:1px solid transparent; border-radius:10px;}
+.imageMap a.p1 {left:2%; top:25%; width:28%; height:22%;}
+.imageMap a.p2 {left:63%; top:12%; width:29%; height:15%;}
+.imageMap a.p3 {left:0%; top:69%; width:38%; height:22%;}
+.imageMap a.p6 {left:56%; top:48%; width:39%; height:25%;}
+.imageMap a + p {position:absolute; left:0%; top:102%; width:100%; color:#000; display:none;}
+
+.imageMap:hover .hotspots {visibility:visible;}
+
+@media all and (max-width: 478px){
+.modal{
+width: 250px !important;
+width: 100% !important;
+margin: 0 auto !important;
+}
+.modal.fade.in{
+top: 10% !important;
+left: 0%;
+}
+}
+
+@media (min-width: 480px) and (max-width: 767px){
+.modal{
+width: 600px !important;
+width: 100% !important;
+margin: 0 auto !important;
+}
+.modal.fade.in{
+top: 10% !important;
+left: 0%;
+right: 5%;
+}
+}
+
+@media all and (min-width: 980px){
+.imageMap:hover .hotspots {
+visibility:hidden;
+}
+.imageMap a.p1{
+visibility:hidden;
+}
+.imageMap a.p2{
+visibility:hidden;
+}
+.imageMap a.p3{
+visibility:hidden;
+}
+.imageMap a.p6 {
+visibility:hidden;
+} 
+}
+
+.modal{
+overflow: scroll !important;
+background-color: #000 !important;
+}
+
+.modal-header{
+background-color: #000;
+border: none !important;
+}
+
+.modal-footer{
+background-color: #000 !important;
+border-top: none !important;
+border-bottom: none !important;
+-webkit-box-shadow: none !important;
+box-shadow: none !important;
+}
+
+.modal-body{
+background-color: #000;
+border-top: none !important;
+border-bottom: none !important;
+-webkit-box-shadow: none !important;
+box-shadow: none !important;
+}
+
+.h3{
+font-weight: bold;
+background: #000;
+color: #f7941e;
+padding: 20px;
+margin: 5px;
+font-size: 3em;
+position: relative;
+top: 20px;
+width: 80px;
+margin: 0 auto;
+}
+
+.h3_yeast{
+font-weight: bold;
+background: #000;
+color: #f7941e;
+padding: 20px;
+margin: 5px;
+font-size: 3em;
+position: relative;
+top: 20px;
+width: 120px;
+margin: 0 auto;
+}
+
+.h3_malt{
+font-weight: bold;
+background: #000;
+color: #f7941e;
+padding: 20px;
+margin: 5px;
+font-size: 3em;
+position: relative;
+top: 20px;
+width: 80px;
+margin: 0 auto;
+}
+
+.h3_hops{
+font-weight: bold;
+background: #000;
+color: #f7941e;
+padding: 20px;
+margin: 5px;
+font-size: 3em;
+position: relative;
+top: 20px;
+width: 100px;
+margin: 0 auto;
+}
+
+.p{
+color: #f7941e;
+padding: 16px;
+font-size: 1em;
+line-height: 2em;
+width: 90%;
+text-align: right;
+border: 1px solid #075227;
+}
+
+.p2{
+color: #f7941e;
+padding: 16 16 38 16;
+font-size: 1em;
+line-height: 2em;
+text-align: right;
+border: 1px solid #f79f2a;
+}
+
+.p3{
+color: #f7941e;
+padding: 16 16 38 16;
+font-size: 1em;
+line-height: 2em;
+text-align: right;
+border: 1px solid #f79f2a;
+}
+
+</style>
+<link href="http://static.scripting.com/github/bootstrap2/css/bootstrap.css" rel="stylesheet">
+		<script src="http://static.scripting.com/github/bootstrap2/js/jquery.js"></script>
+		<script src="http://static.scripting.com/github/bootstrap2/js/bootstrap-transition.js"></script>
+		<script src="http://static.scripting.com/github/bootstrap2/js/bootstrap-modal.js"></script>
+		
+<body style="background: #000;">
+<div class="wrapper" onclick="">
+	<div class="this_page">
+		<div class="imageMap" aria-haspopup="true">
+			<img src="mobile_ingredients.png" alt="">
+			<div class="hotspots">
+				<!--top left-->
+				<div><a href="#myModal" role="button" class="p1" data-toggle="modal" title="tap to enlarge"></a></div>
+				<!--bottom left-->
+				<div><a href="#myModal3" class="p3" role="button" data-toggle="modal" title="tap to enlarge"></a></div>
+				<!--top right-->
+				<div><a href="#myModal2" class="p2" role="button" data-toggle="modal" title="tap to enlarge"></a></div>
+				<!--bottom right-->
+				<div><a href="#myModal4" class="p6" role="button" data-toggle="modal" title="tap to enlarge"></a></div>
+			</div>
+		</div>
+	</div>
+</div>
+<p style="display: none;">With thanks to Stu Nicholls - cssplay.co.uk.</p>
+ 
+<!-- Modal 1 -->
+<!--top left-->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="#h3myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>  
+  </div>
+  <div class="modal-body">
+  <h3 id="h3" class="h3">H<sub>2</sub>O</h3>
+    <p class="p">Our very own Kerry Natural Spring Water is perfect for Brewing.  Local word has it that this water has many, life affirming powers.  All we know is that having water of this quality on our doorstep helps us produce a unique Larger that is as close to nature, and is unmistakably Irish.</p>
+	<p style="text-align: center; position: relative; bottom: 20px;"><img src="h2o.png" /></p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">OK</button>
+  </div>
+</div>
+<!-- Modal 3 -->
+<!--bottom left-->
+<div id="myModal3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="#h3myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+   <h3 id="h3" class="h3_hops">HOPS</h3>
+    <p class="p3">Finest quality Hops are added to our larger & Cara Malt, which is mashed with hot spring wate and left ow stand while the starches convert to sugar.  The hot sweet unfermented beer is run off to the Kettle and the sugars are rinsed off.  Our Hops are added and given a vigorous boil.  Chilled Spring Water cools the Crean's Wort en route to the Fermenting Vessel.  Yeast is added so Fermentation can take place.  The Beer is given a 2 day stand then chilled and transferred to the Largering Vessel.</p>
+	<p style="text-align: center; position: relative; bottom: 50px;"><img src="hops.png" /></p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">OK</button>
+  </div>
+</div>
+<!-- Modal 2 -->
+<!--top right-->
+<div id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="#h3myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  </div>
+  <div id="h3" class="modal-body">
+    <h3 class="h3_yeast">YEAST</h3>
+    <p class="p2">We use only the finest natural ingredients and the simplest of brewing techniques to make our larger as pure as possible. We introduce the ingredients to each other and patiently wait over a couple of weeks while nature does the rest.</p>
+	<p style="text-align: center; position: relative; bottom: 20px;"><img src="yeast.png" /></p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">OK</button>
+  </div>
+</div>
+<!-- Modal 4 -->
+<!--bottom right-->
+<div id="myModal4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="#h3myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+  <h3 id="h3"class="h3_malt">Malt</h3>
+  <p class="p2">Crean's is Brewed with two Malts.  Larger Malt, our base Malt, light in colour with a slight sweet malty taste and Cara Malt, roasted longer than the Larger Malt.  This gives the Crean's the golden colour and slight caramelised taste.  Then there is our Sflager Yeast, a German style lager yeast, all coming together to produce what can be described as.... <br />FRESH, CLEAN, REFRESHINGLY GOLDEN LARGER.</p>
+  <p style="text-align: center; position: relative; bottom: 50px;"><img src="malt.png" /></p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">OK</button>
+  </div>
+</div>
+
+</html>
